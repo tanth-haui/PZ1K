@@ -1,0 +1,101 @@
+H01
+
+$
+$
+NASTRAN Q4TAPER=0.9,Q4SKEW=10.0,T3SKEW=1.0
+$
+ID NORMAL MODES
+SOL 103
+CEND
+$
+TITLE = HO1-STRG-MBR
+SUBTITLE = HO1-STRG-MBR
+$
+ECHO = NONE
+DISP(PLOT) = ALL
+ESE(PLOT) = ALL
+METHOD = 90
+LOADSET    = 999
+$
+BEGIN BULK
+$------1-------2-------3-------4-------5-------6-------7-------8-------9-------0
+PARAM    AUTOSPC     YES
+PARAM     GRDPNT       0
+PARAM       TINY     0.0
+PARAM     NEWSEQ      -1
+PARAM       POST      -2
+PARAM     ZROVEC  1.0E-9
+PARAM     RESVEC     YES
+PARAM      SNORM    45.0
+PARAM    OUGCORD  GLOBAL
+PARAM     PRGPST      NO
+PARAM      K6ROT    10.0
+$------1-------2-------3-------4-------5-------6-------7-------8-------9-------0
+EIGRL   90                100.0
+$------1-------2-------3-------4-------5-------6-------7-------8-------9-------0
+$    NODE ID : 509
+LSEQ         999    5001    5001
+LSEQ         999    5002    5002
+LSEQ         999    5003    5003
+FORCE       5001     509       01.0     1.0     0.0     0.0     
+FORCE       5002     509       01.0     0.0     1.0     0.0     
+FORCE       5003     509       01.0     0.0     0.0     1.0     
+$------1-------2-------3-------4-------5-------6-------7-------8-------9-------0
+$ SUPPORT
+SUPORT        51       1
+SUPORT        51       3
+SUPORT        52       1
+SUPORT        52       3
+SUPORT        50       2
+SUPORT        50       3
+$------1-------2-------3-------4-------5-------6-------7-------8-------9-------0
+INCLUDE 'PZ1K-US-LHD-PFC_N022BI.mmSIsprFe.hexa'
+INCLUDE 'PZ1K-US-LHD-PFC_N022BI.mmSIsprFe.rbe3'
+INCLUDE 'PZ1K-US-LHD-PFC_N022BI.mmSIsptFe.hexa'
+INCLUDE 'PZ1K-US-LHD-PFC_N022BI.mmSIsptFe.rbe3'
+INCLUDE 'PZ1K-US-LHD-PFC_N022BI_H01.nas'
+ENDDATA
+
+
+
+Lo1
+
+$
+ID NORMAL MODES
+SOL 103
+CEND
+$
+ECHO = NONE
+TITLE = L01_KOYUCHI
+SUBTITLE = L01_KOYUCHI
+$
+DISP(PLOT) = ALL
+ESE(PLOT) = ALL
+METHOD = 90
+$
+BEGIN BULK
+$
+$------1-------2-------3-------4-------5-------6-------7-------8-------9-------0
+PARAM     GRDPNT       0
+PARAM       POST      -2
+PARAM    OUGCORD  GLOBAL
+PARAM     NEWSEQ      -1
+PARAM      K6ROT    10.0
+PARAM     PRGPST      NO
+PARAM       TINY     0.0
+PARAM    AUTOSPC     YES
+PARAM      SNORM    45.0
+PARAM     ZROVEC  1.0E-9
+$------1-------2-------3-------4-------5-------6-------7-------8-------9-------0
+EIGRL   90                 80.0
+$------1-------2-------3-------4-------5-------6-------7-------8-------9-------0
+$
+INCLUDE 'PZ1K-US-LHD-PFC_N018BI.mmSIsprFe.hexa'
+INCLUDE 'PZ1K-US-LHD-PFC_N018BI.mmSIsprFe.rbe3'
+INCLUDE 'PZ1K-US-LHD-PFC_N018BI.mmSIsptFe.hexa'
+INCLUDE 'PZ1K-US-LHD-PFC_N018BI.mmSIsptFe.rbe3'
+INCLUDE 'PZ1K-US-LHD-PFC_N018BI_L01.nas'
+ENDDATA
+
+
+
